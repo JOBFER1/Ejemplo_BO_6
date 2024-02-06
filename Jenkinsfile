@@ -7,6 +7,7 @@ pipeline {
         echo 'Hola'
         tool(name: 'MAVEN_3_8_6', type: 'maven')
         tool(name: 'JDK_11', type: 'jdk')
+        bat 'mvn -v'
       }
     }
 
