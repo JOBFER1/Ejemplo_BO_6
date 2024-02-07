@@ -2,16 +2,18 @@ pipeline {
   agent any
   stages {
     stage('Etapa 1') {
-      agent any
       steps {
         echo 'Hola'
-        tool(name: 'MAVEN_3_8_6', type: 'maven')
-        tool(name: 'JDK_11', type: 'jdk')
         bat 'mvn -v'
-        libraryResource 'lib1'
-        library 'lib1'
       }
     }
-
+    stage('Sonar Analysis') {
+      when (BRANCH_NAME == 'temp') {
+        echo 'Excecuted only on temp branch.'
+      }
+    }    
+    stage('Fin') {
+        echo 'Fin'
+    }    
   }
 }
