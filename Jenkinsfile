@@ -8,12 +8,16 @@ pipeline {
       }
     }
     stage('Sonar Analysis') {
-      when (BRANCH_NAME == 'temp') {
-        echo 'Excecuted only on temp branch.'
+      steps{
+        when (BRANCH_NAME == 'temp') {
+          echo 'Excecuted only on temp branch.'
+        }
       }
     }    
     stage('Fin') {
+      steps{
         echo 'Fin'
+      }
     }    
   }
 }
